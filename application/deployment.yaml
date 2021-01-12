@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-web-app
+spec:
+  selector:
+    matchLabels:
+      app: node-web-app
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: node-web-app
+    spec:
+      containers:
+        - name: node-web-app
+          image: node-web-app
+          
+          # only use this to for local development
+          # we never pushed our image to a remote registry
+          # and by default Kubernetes pulls images
+          # this property forces kubernetes to always use 
+          # the local image that is not a good practice in production
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
