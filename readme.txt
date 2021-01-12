@@ -8,6 +8,6 @@ kubectl get service
 kubectl get pods
 kubectl apply -f application/deployment.yaml
 kubectl apply -f application/service.yaml
-kubectl describe svc my-service-for-my-webapp
+kubectl describe svc my-service-for-node-web-app
 kubectl delete -f application/service.yaml
 kubectl delete -f application/deployment.yaml
